@@ -21,8 +21,8 @@ public class Application {
     public static final String EM_BEGIN = "<em>";
     public static final String EM_END = "</em>";
 
-    public static void main(String[] args) throws IOException {
-        new Application().searchCloudDoc("收费");
+    public static void main(String[] args) {
+//        new Application().searchCloudDoc("函数计费");
     }
 
     public String mainHandler(APIGatewayProxyRequestEvent req) throws IOException {
@@ -70,7 +70,16 @@ public class Application {
         return result.toString();
     }
 
-    private String replaceFont(String content) {
+    public String replaceAllFont(String content) {
+        if (content.contains(EM_BEGIN)) {
+            content = replaceFont(content);
+            return replaceAllFont(content);
+        } else {
+            return content;
+        }
+    }
+
+    public String replaceFont(String content) {
         int begin = content.indexOf(EM_BEGIN);
         int end = content.indexOf(EM_END);
         if (begin < 0 || end < 0) {
