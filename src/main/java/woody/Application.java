@@ -57,7 +57,7 @@ public class Application {
             String content = jsonObject.getString("content");
             System.out.println("title:" + title + ";urlString:" + urlString);
             System.out.println(content);
-            stringBuilder.append(String.format("[%s](%s) \n > %s \n", title, urlString, replaceFont(content)));
+            stringBuilder.append(String.format("[%s](%s) \n > %s \n", title, urlString, replaceAllFont(content)));
             stringBuilder.append(System.lineSeparator());
         }
         System.out.println("查询结果：");
