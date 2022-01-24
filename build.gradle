@@ -1,0 +1,21 @@
+plugins {
+    id 'java'
+}
+
+group 'org.example'
+version '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.json:json:20211205'
+    implementation group: 'com.tencentcloudapi', name: 'scf-java-events', version: '0.0.4'
+    implementation group: 'commons-codec', name: 'commons-codec', version: '1.15'
+    implementation 'com.tencentcloudapi:tencentcloud-sdk-java:3.1.427'
+}
+
+test {
+    useJUnitPlatform()
+}
